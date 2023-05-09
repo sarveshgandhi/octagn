@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-05-09T19:26:30.109Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36" etag="8UyHIeqmcDibs0mPsSts" version="21.2.9" type="github">
+<mxfile host="app.diagrams.net" modified="2023-05-09T19:29:54.084Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36" etag="JRfQLv8aUg7WHk5lDA5F" version="21.2.9" type="github">
   <diagram name="Page-1" id="hYXTnanG5P5eI5aRu3JL">
     <mxGraphModel dx="1235" dy="1853" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -27,7 +27,7 @@
         <mxCell id="0CcHJ5xWRyJ15fwOYRmY-7" value="Comment" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=left;arcSize=4;whiteSpace=wrap;html=1;spacing=22;" parent="1" vertex="1">
           <mxGeometry x="810" y="10" width="100" height="160" as="geometry" />
         </mxCell>
-        <mxCell id="0CcHJ5xWRyJ15fwOYRmY-8" value="&lt;div&gt;id&lt;/div&gt;&lt;div&gt;issueId&lt;/div&gt;&lt;div&gt;commentor&lt;/div&gt;&lt;div&gt;timestamp&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" parent="0CcHJ5xWRyJ15fwOYRmY-7" vertex="1">
+        <mxCell id="0CcHJ5xWRyJ15fwOYRmY-8" value="&lt;div&gt;id&lt;/div&gt;&lt;div&gt;issueId&lt;/div&gt;&lt;div&gt;commentor&lt;/div&gt;&lt;div&gt;timestamp&lt;/div&gt;&lt;div&gt;text&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" parent="0CcHJ5xWRyJ15fwOYRmY-7" vertex="1">
           <mxGeometry y="50" width="100" height="110" as="geometry" />
         </mxCell>
         <mxCell id="0CcHJ5xWRyJ15fwOYRmY-11" value="&lt;span id=&quot;docs-internal-guid-b362fcdb-7fff-917d-6e88-48ba830d9adc&quot;&gt;Issue&lt;/span&gt;" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=left;arcSize=4;whiteSpace=wrap;html=1;spacing=22;" parent="1" vertex="1">
@@ -92,6 +92,9 @@
             <mxPoint x="560" y="240" as="sourcePoint" />
             <mxPoint x="810" y="104" as="targetPoint" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="fx4jIIGhQxFegW_63j19-10" value="Richtext comment in upcoming feature" style="shape=note;strokeWidth=2;fontSize=14;size=20;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontColor=#666600;align=left;" vertex="1" parent="1">
+          <mxGeometry x="810" y="190" width="130" height="40" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
