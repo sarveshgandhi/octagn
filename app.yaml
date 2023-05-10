@@ -1,6 +1,3 @@
-runtime: python
+runtime: python311
 env: flex
 entrypoint: gunicorn -b 8000 main:app
-
-runtime_config:
-  python_version: 3
