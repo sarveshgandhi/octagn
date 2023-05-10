@@ -1,3 +1,3 @@
 steps:
-- name: 'gcr.io/gcp-runtimes/python/gen-dockerfile:latest'
-  args: ['build', '.']
+  - name: 'gcr.io/cloud-builders/gcs-fetcher:latest'
+    args: ['app', 'deploy']
