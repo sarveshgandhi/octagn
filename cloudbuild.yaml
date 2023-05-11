@@ -1,5 +1,5 @@
 steps:
   - name: 'gcr.io/cloud-builders/gcloud:latest'
-    args: ['app', 'deploy']
+    args: ['app', 'deploy', '--ignore-errors']
   - name: 'gcr.io/cloud-builders/gcloud:latest'
     args: ['app', 'services', 'set-traffic', '--migrate']
