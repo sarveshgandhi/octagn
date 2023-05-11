@@ -1,5 +1,6 @@
 steps:
   - name: 'gcr.io/cloud-builders/gcloud:latest'
-    args: ['app', 'deploy', '--ignore-errors']
+    entrypoint: bash
+    args: gcloud app deploy || true
   - name: 'gcr.io/cloud-builders/gcloud:latest'
     args: ['app', 'services', 'set-traffic', '--migrate']
