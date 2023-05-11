@@ -1,6 +1,9 @@
 steps:
   - name: 'gcr.io/cloud-builders/gcloud:latest'
     entrypoint: bash
-    args: gcloud app deploy || true
+    args:
+      - '-c'
+      - |
+        gcloud app deploy --quiet --project $PROJECT_ID --version $SHORT_SHA || true
   - name: 'gcr.io/cloud-builders/gcloud:latest'
     args: ['app', 'services', 'set-traffic', '--migrate']
