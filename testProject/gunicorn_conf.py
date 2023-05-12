@@ -2,6 +2,7 @@ import multiprocessing
 import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+print(f">>>. setting chmod to {BASE_DIR}")
 
 # Gunicorn config variables
 bind = '0.0.0.0:8000'
