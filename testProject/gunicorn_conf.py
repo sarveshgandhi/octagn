@@ -14,3 +14,4 @@ threads = 2
 pythonpath = BASE_DIR
 chdir = BASE_DIR
 module = 'testProject.wsgi:application'
+print(f">>>. Setting module value to {module}")
