@@ -7,6 +7,6 @@ worker_class = 'gthread'
 threads = 2
 
 # Django app config variables
-pythonpath = '/app'
-chdir = '.'
+pythonpath = '/home/sarvesh_jain_96742/testProject'
+chdir = '/home/sarvesh_jain_96742/testProject'
 module = 'testProject.wsgi:application'
