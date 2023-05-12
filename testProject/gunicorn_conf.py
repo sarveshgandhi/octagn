@@ -13,4 +13,4 @@ threads = 2
 # Django app config variables
 pythonpath = BASE_DIR
 chdir = BASE_DIR
-module = 'testProjct.wsgi:application'
+module = 'testProject.wsgi:application'
