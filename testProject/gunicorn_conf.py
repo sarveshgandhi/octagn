@@ -13,5 +13,5 @@ threads = 2
 # Django app config variables
 pythonpath = BASE_DIR
 chdir = BASE_DIR
-module = os.path.dirname(os.path.abspath(__file__)) + '.wsgi:application'
+module = 'workspace.testProjct.wsgi:application'
 print(f">>>. Setting module value to {module}")
