@@ -8,5 +8,5 @@ threads = 2
 
 # Django app config variables
 pythonpath = '/app'
-chdir = '/app'
+chdir = '.'
 module = 'testProject.wsgi:application'
