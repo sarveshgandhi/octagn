@@ -1,2 +1,2 @@
 runtime: python311
-entrypoint: gunicorn --bind=0.0.0.0:8000 --workers=2 --threads=4 --timeout=60 --chdir=/workspace/testProject testProject.wsgi:application
+entrypoint: gunicorn -c ./testProject/gunicorn_conf.py
