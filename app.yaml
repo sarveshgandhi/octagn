@@ -1,2 +1,2 @@
 runtime: python311
-entrypoint: gunicorn -b 8000 -c gunicorn.conf.py testProject.wsgi:application
+entrypoint: gunicorn -c gunicorn.conf.py testProject.wsgi:application
