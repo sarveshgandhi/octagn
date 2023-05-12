@@ -1,7 +1,7 @@
 import multiprocessing
 import os
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 print(f">>>. Setting chdir value to {BASE_DIR}")
 
 # Gunicorn config variables
@@ -13,5 +13,4 @@ threads = 2
 # Django app config variables
 pythonpath = BASE_DIR
 chdir = BASE_DIR
-module = 'workspace.testProjct.wsgi:application'
-print(f">>>. Setting module value to {module}")
+module = 'testProjct.wsgi:application'
