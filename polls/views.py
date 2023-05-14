@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from django.http import HttpResponse, HttpResponseRedirect # noqa: 401
+from django.http import HttpResponseRedirect, JsonResponse # noqa: 401
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from django.views import generic
@@ -20,13 +20,12 @@ from django.views import generic
 from .models import Choice, Question
 
 
-class IndexView(generic.ListView):
-    template_name = 'polls/index.html'
-    context_object_name = 'latest_question_list'
+class IndexView():
 
     def get_queryset(self):
         """Return the last five published questions."""
-        return Question.objects.order_by('-pub_date')[:5]
+        # return Question.objects.order_by('-pub_date')[:5]
+        return JsonResponse({"message": "This is your index view"})
 
 
 class DetailView(generic.DetailView):
