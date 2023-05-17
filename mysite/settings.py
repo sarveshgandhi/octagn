@@ -12,6 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from functools import cache
 import io
 import os
 from urllib.parse import urlparse
@@ -26,7 +27,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 env = environ.Env(DEBUG=(bool, False))
 env_file = os.path.join(BASE_DIR, ".env")
 
+@cache
 def getSecretFromGoogleSecretManager(name):
+    print(">>>. name =", name)
     client = secretmanager.SecretManagerServiceClient()
     return client.access_secret_version(name=name).payload.data.decode("UTF-8")
 
