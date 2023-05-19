@@ -12,7 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from functools import lru_cache
 import io
 import os
 from urllib.parse import urlparse
@@ -23,7 +22,7 @@ from google.cloud import secretmanager
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-@lru_cache
+
 def getSecretFromGoogleSecretManager(name):
     print(">>>. name =", name)
     client = secretmanager.SecretManagerServiceClient()
@@ -60,13 +59,7 @@ else:
     raise Exception("No local .env or GOOGLE_CLOUD_PROJECT detected. No secrets found.")
 # [END gaestd_py_django_secret_config]
 
-SECRET_KEY: str
-if os.path.isfile(env_file):
-    SECRET_KEY = env("SECRET_KEY")
-else:
-    project_id = os.environ.get("GOOGLE_CLOUD_PROJECT")
-    secret_key_name = f"projects/{project_id}/secrets/DJANGO_SECRET_KEY/versions/latest"
-    SECRET_KEY = getSecretFromGoogleSecretManager(secret_key_name)
+SECRET_KEY: str = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # Change this to "False" when you are ready for production
@@ -137,36 +130,16 @@ WSGI_APPLICATION = "mysite.wsgi.application"
 # [START db_setup]
 # [START gaestd_py_django_database_config]
 # Use django-environ to parse the connection string
-DATABASES: dict
-if os.path.isfile(env_file):
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.postgresql",
-            "NAME": "postgres",
-            "HOST": env("DATABASE_URL"),
-            "PORT": "5432",
-            "USER": env("DATABASE_USERNAME"),
-            "PASSWORD": env("DATABASE_PASSWORD"),
-        }
+DATABASES: dict = {
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "postgres",
+        "HOST": env("DATABASE_URL"),
+        "PORT": "5432",
+        "USER": env("DATABASE_USERNAME"),
+        "PASSWORD": env("DATABASE_PASSWORD"),
     }
-else:
-    # Pull secrets from Secret Manager
-    project_id = os.environ.get("GOOGLE_CLOUD_PROJECT")
-
-    database_username = f"projects/{project_id}/secrets/AWS_DATABASE_USERNAME/versions/latest"
-    database_password = f"projects/{project_id}/secrets/AWS_DATABASE_PASSWORD/versions/latest"
-    database_url = f"projects/{project_id}/secrets/AWS_DATABASE_URL/versions/latest"
-    
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.postgresql",
-            "NAME": "postgres",
-            "HOST": getSecretFromGoogleSecretManager(database_url),
-            "PORT": "5432",
-            "USER": getSecretFromGoogleSecretManager(database_username),
-            "PASSWORD": getSecretFromGoogleSecretManager(database_password),
-        }
-    }
+}
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
