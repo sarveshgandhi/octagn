@@ -12,6 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from functools import lru_cache
 import io
 import os
 from urllib.parse import urlparse
@@ -23,6 +24,7 @@ from google.cloud import secretmanager
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
+@lru_cache
 def getSecretFromGoogleSecretManager(name):
     print(">>>. name =", name)
     client = secretmanager.SecretManagerServiceClient()
