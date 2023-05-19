@@ -23,15 +23,15 @@ from google.cloud import secretmanager
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# [START gaestd_py_django_secret_config]
-env = environ.Env(DEBUG=(bool, False))
-env_file = os.path.join(BASE_DIR, ".env")
-
 @lru_cache
 def getSecretFromGoogleSecretManager(name):
     print(">>>. name =", name)
     client = secretmanager.SecretManagerServiceClient()
     return client.access_secret_version(name=name).payload.data.decode("UTF-8")
+
+# [START gaestd_py_django_secret_config]
+env = environ.Env(DEBUG=(bool, False))
+env_file = os.path.join(BASE_DIR, ".env")
 
 if os.path.isfile(env_file):
     # Use a local secret file, if provided
@@ -54,7 +54,7 @@ elif os.environ.get("GOOGLE_CLOUD_PROJECT", None):
     settings_name = os.environ.get("SETTINGS_NAME", "django_settings")
     name = f"projects/{project_id}/secrets/{settings_name}/versions/latest"
     payload = getSecretFromGoogleSecretManager(name)
-
+    print(">>>. payload from django_settings =", payload)
     env.read_env(io.StringIO(payload))
 else:
     raise Exception("No local .env or GOOGLE_CLOUD_PROJECT detected. No secrets found.")
